@@ -5,7 +5,7 @@ Fake LLM endpoint following the OpenAI spec. Usefull for load testing LLM proxie
 * OpenAI `v1/chat/completions` compatible.
 * Responses have latency like in a real model.
 * Streaming and non-streaming responses.
-* Supports 10k RPS concurrent requests.
+* Supports a high number of concurrent requests. (To be benchmarked)
 
 ## Run with docker
 Start the server:

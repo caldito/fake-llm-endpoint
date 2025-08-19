@@ -29,3 +29,6 @@ deps:
 run: build
 	./$(BINARY_NAME)
 
+
+build-docker: build
+	sudo docker build . -t caldito/fake-llm-endpoint:$(VERSION)
