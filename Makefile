@@ -30,5 +30,8 @@ run: build
 	./$(BINARY_NAME)
 
 
-build-docker: build
-	sudo docker build . -t caldito/fake-llm-endpoint:$(VERSION)
+build-docker: build # This is for local testing only, images are built and pushed with gh actions
+	sudo docker build . -t ghcr.io/caldito/fake-llm-endpoint:$(VERSION)
+
+load-test:
+	sudo docker run --rm -i --network="host" -e BASE_URL=http://localhost:8080 -v $(pwd)/loadtest.js:/loadtest.js grafana/k6 run /loadtest.js
